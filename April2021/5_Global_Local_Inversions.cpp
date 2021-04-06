@@ -18,3 +18,19 @@ Example 2:
 Input: A = [1,2,0]
 Output: false
 Explanation: There are 2 global inversions, and 1 local inversion.*/
+
+class Solution {
+public:
+    bool isIdealPermutation(vector<int>& A) {
+        
+        int n=A.size();
+        int maxv=-1;
+        for(int i=0; i<n-2; i++){
+            maxv= max(A[i], maxv);
+            if(maxv> A[i+2])
+                return false;
+        }
+        return true;
+        
+    }
+};
